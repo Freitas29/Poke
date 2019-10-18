@@ -2,7 +2,9 @@
     <header id="app">
         <a href="">Logo</a>
         <ul>
-            <Button label="Entrar" color="primary"/>
+            <router-link to="/">
+                <Button label="Entrar" color="primary"/>
+            </router-link>
         </ul>
     </header>
 </template>
