@@ -27,7 +27,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        background-color: #a55eea;
+        background-color: #5352ed;
         height: 60px;
     }
 </style>

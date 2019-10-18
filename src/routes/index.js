@@ -1,11 +1,11 @@
 import VueRouter from 'vue-router'
 import Vue from 'vue'
-import Hello from '../components/HelloWorld.vue'
+import Main from '../pages/Main.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-    { path: "/", component: Hello }
+    { path: "/", component: Main }
 ]
 
   

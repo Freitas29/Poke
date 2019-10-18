@@ -25,13 +25,13 @@ export default {
 
 body, html{
   height: 100%;
-  background-color: #d1d8e0;
+  background-color: #f1f2f6;
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #d1d8e0;
+  color: #2f3542;
 }
 </style>
