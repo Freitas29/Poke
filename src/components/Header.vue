@@ -2,15 +2,20 @@
     <header id="app">
         <a href="">Logo</a>
         <ul>
-            <button>Entrar</button>
+            <Button label="Entrar" color="primary"/>
         </ul>
     </header>
 </template>
 
 <script>
+
+import Button from './Button'
+
 export default {
     name: "Header",
-
+    components: {
+        Button
+    }
 }
 </script>
 
