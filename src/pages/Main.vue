@@ -1,16 +1,21 @@
 <template>
   <div class="main">
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
+    <Card
+    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+    name="Charizard"
+    gender="Fogo"
+     />
   </div>
 </template>
 
 <script>
+import Card from '../components/Card'
+
 export default {
   name: 'Main',
+  components: {
+      Card
+  }
 }
 </script>
 
