@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="actions">
-      <input v-model="name" />
+      <Input v-model="name" />
       <button v-on:click="search">Aa</button>
     </div>
     <Card
@@ -16,11 +16,13 @@
 <script>
 import Card from '../components/Card'
 import axios from 'axios'
+import Input from '../components/Input'
 
 export default {
   name: 'Main',
   components: {
-      Card
+      Card,
+      Input
   },
   data(){
         return { 
