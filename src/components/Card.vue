@@ -6,7 +6,7 @@
         <div class="card-details">
             <h1>{{name}}</h1>
             <div class="types">
-                <label>{{gender}}</label>
+                <label v-for="gender in genders" v-bind:key="gender.type.name">{{gender.type.name}}</label>
             </div>
         </div>
     </div>
@@ -24,11 +24,11 @@ export default {
             type: String,
             required: true
         },
-        gender: {
-            type: String,
+        genders: {
+            type: Array,
             required: true,
         }
-    }    
+    }
 }
 </script>
 
