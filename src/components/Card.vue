@@ -6,7 +6,7 @@
         <div class="card-details">
             <h1>{{name}}</h1>
             <div class="types">
-                <label v-for="gender in genders" v-bind:key="gender.type.name">{{gender.type.name}}</label>
+                <label v-for="gender in genders" v-bind:key="gender.type.name" :class="getColor(gender.type.name)" >{{gender.type.name}}</label>
             </div>
         </div>
     </div>
@@ -27,6 +27,11 @@ export default {
         genders: {
             type: Array,
             required: true,
+        }
+    },
+    methods: {
+        getColor(value){
+            return `${value} `
         }
     }
 }
@@ -72,10 +77,103 @@ export default {
     font-size: 14px;
     color: #57606f;
     text-transform: uppercase;
+    padding: 5px;
+    border-radius: 15px;
 }
 
 .card-details h1{
     text-align: center;
+}
+
+.electric{
+    background-color: #fed330;
+    color: #fff !important;
+}
+
+.flying{
+    background-color: #d1d8e0;
+    color: #000 !important;
+}
+
+.ice{
+    background-color: #2bcbba;
+    color: #fff !important;
+}
+
+.poison{
+    background-color: #8854d0;
+    color: #fff !important;
+}
+
+.ground{
+    background-color: #cd6133;
+    color: #fff !important;
+}
+
+
+.rock{
+    background-color: #84817a;
+    color: #fff !important;
+}
+
+.bug{
+    background-color: #218c74;
+    color: #fff !important;
+}
+
+.fire{
+    background-color: #ff5252;
+    color: #fff !important;
+}
+
+.ghost{
+    background-color: #474787;
+    color: #fff !important;
+}
+
+.steel{
+    background-color: #aaa69d;
+    color: #000 !important;
+}
+
+.water{
+    background-color: #45aaf2;
+    color: #fff !important;
+}
+
+.grass{
+    background-color: #26de81;
+    color: #fff !important;
+}
+
+.psychic{
+    background-color: #f7b731;
+    color: #fff !important;
+}
+
+.dragon{
+    background-color: #fc5c65;
+    color: #fff !important;
+}
+
+.dark{
+    background-color: #2c2c54;
+    color: #fff !important;
+}
+
+.fairy{
+    background-color: #f7f1e3;
+    color: #000 !important;
+}
+
+.unknown{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #fff !important;
+}
+
+.shadow{
+    background-color: #40407a;
+    color: #fff !important;
 }
 
 </style>
