@@ -53,7 +53,7 @@ export default {
 
 .card-image img{
     width: 100%;
-    height: 100%;
+    height: 250px
 }
 
 .card-details{

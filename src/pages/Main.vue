@@ -1,15 +1,16 @@
 <template>
   <div class="main">
     <div class="actions">
-      <Input v-model="name" />
-      <button v-on:click="search">Aa</button>
+      <Input v-model="name" v-on:keyup.enter="search"/>
     </div>
-    <Card
+    <div class="content">
+      <Card
       v-if="pokemon"
       v-bind:image="pokemon.sprites.front_default"
       v-bind:name="pokemon.name"
       v-bind:genders="pokemon.types"
      />
+    </div>
   </div>
 </template>
 
@@ -52,7 +53,11 @@ export default {
 <style scoped>
 .main{
     padding: 5% 5%;
-    grid-gap: 1%;
+    grid-gap: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .main .actions{
@@ -61,4 +66,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
+.content{
+  margin-top: 2%;
+  width: 30%;
+}
+
 </style>
