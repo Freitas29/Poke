@@ -24,8 +24,11 @@ export default {
 }
 
 body, html{
-  height: 100%;
-  background-color: #f1f2f6;
+    height: 100%;
+    background-color: #f1f2f6;
+    background-image: url("./assets/pokemon-ultra-sun-and-ultra-moon-p8-1920x1080.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 *{
