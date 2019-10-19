@@ -39,7 +39,7 @@ var mixinColor =  {
                 case "shadow":
                     return shadow()
                 default:
-                    return"pora";
+                    return unknown();
             }
         }
     }
