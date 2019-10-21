@@ -163,4 +163,27 @@ export default {
         }
     }
 
+    @media (max-width: 768px){
+        .pokemon-details{
+            margin-top: 5%;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2,1fr) !important;
+            justify-items: center;
+
+            h1{
+                font-size: 15px !important;
+            }
+
+            label{
+                font-size: 10px;
+            }
+
+            .pokemon-details-description{
+                text-align: center;
+            }
+
+        }
+    }
+
 </style>
