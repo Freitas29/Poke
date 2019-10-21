@@ -1,15 +1,17 @@
 <template>
-    <div class="card">
-        <div class="card-image">
-            <img :src="image">
-        </div>
-        <div class="card-details">
-            <h1>{{name}}</h1>
-            <div class="types">
-                <label v-for="gender in genders" v-bind:key="gender.type.name" v-bind:style="getColor(gender.type.name)">{{gender.type.name}}</label>
+    <router-link class="nav-link" :to="goToDetails()">
+        <div class="card">
+            <div class="card-image">
+                <img :src="image">
+            </div>
+            <div class="card-details">
+                <h1>{{name}}</h1>
+                <div class="types">
+                    <label v-for="gender in genders" v-bind:key="gender.type.name" v-bind:style="getColor(gender.type.name)">{{gender.type.name}}</label>
+                </div>
             </div>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <script>
@@ -29,11 +31,18 @@ export default {
         genders: {
             type: Array,
             required: true,
+        },
+        id: {
+            type: Number,
+            required: true,
         }
     },
     methods: {
         getColor(value){
             return this.color(value)
+        },
+        goToDetails(){
+            return `pokemon/${this.id}`
         }
     },
     mixins: [mixinColor]

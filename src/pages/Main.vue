@@ -9,6 +9,7 @@
       v-bind:image="pokemon.sprites.front_default"
       v-bind:name="pokemon.name"
       v-bind:genders="pokemon.types"
+      v-bind:id="pokemon.id"
      />
     </div>
   </div>

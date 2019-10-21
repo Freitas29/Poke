@@ -36,5 +36,6 @@ body, html{
   padding: 0;
   box-sizing: border-box;
   color: #2f3542;
+  text-decoration: none;
 }
 </style>

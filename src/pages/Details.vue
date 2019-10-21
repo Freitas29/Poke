@@ -1,17 +1,14 @@
 <template>
     <div class="container">
-        <div class="card">
+        <div class="card" v-if="pokemon">
             <div class="card-details">
                 <div class="card-image">
                     <img :src="pokemon.sprites.front_default">
-                     <h1>{{pokemon.name}}</h1>
+                     
                 </div>
                 
                 <div class="card-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacus justo, laoreet eget imperdiet pretium, sollicitudin quis nisl. Nullam fringilla, est a rutrum pulvinar, leo ligula volutpat nibh, a facilisis lectus tortor porta orci. Curabitur ex massa, tristique vel molestie vel, finibus porta neque. Sed eu dui eget arcu bibendum rutrum. 
-                        Aliquam elementum dolor id efficitur tincidunt. 
-                        Nunc malesuada dui ut risus iaculis,
-                         ac sagittis velit pellentesque. </p>
+                    <h1>{{pokemon.name}}</h1>
                 </div>
             </div>
 
@@ -45,9 +42,10 @@
                     <progress-bar 
                         :val="stats.base_stat"
                         size="large"
+                        max="200"
                         :bar-color="getColor(stats.stat.name)"
                         :text="stats.base_stat.toString()"
-                        text-position="bottom left"
+                        text-position="top"
                         text-fg-color="#e5e5f1"
                     />
 
@@ -123,10 +121,11 @@ export default {
                     display: grid;
                     grid-template-columns: 1fr;
                     justify-items: center;
+                    height: 150px;
+
 
                     img{
                         height: 100%;
-                        max-height: 150px;
                         width: 30%;
                     }
                 }
@@ -134,9 +133,12 @@ export default {
                 .card-description{
                     text-align: justify;
                     padding: 15px;
-                    line-height: 2.1rem;
-                    font-size: 23px;
-
+                    line-height: 1.7rem;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
                 }
             }
 
