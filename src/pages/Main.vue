@@ -73,4 +73,10 @@ export default {
   width: 30%;
 }
 
+@media (max-width: 768px){
+  .content{
+    width: 70%;
+  }
+}
+
 </style>
