@@ -28,7 +28,7 @@ body, html{
     background-color: #f1f2f6;
     background-image: url("./assets/pokemon-ultra-sun-and-ultra-moon-p8-1920x1080.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 }
 
 *{
