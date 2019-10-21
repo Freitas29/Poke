@@ -12,6 +12,13 @@
       v-bind:id="pokemon.id"
      />
     </div>
+
+    <div class="pagination">
+      <div class="items">
+        <button @click="fetchPreviousPage()">Anterior</button>
+        <button @click="fetchNextPage()">Próxima</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -30,6 +37,9 @@ export default {
         return { 
             pokemon: null,
             name: '',
+            pokemonList: [],
+            nextPage: null,
+            previous: null,
         }
     },
     computed: {
@@ -37,6 +47,15 @@ export default {
         return this.name.toLowerCase()
       }
     },
+    async mounted(){
+         try{
+           const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
+           this.pokemonList = response.data.results
+           this.nextPage = response.data.next
+         }catch(e){
+             alert(e)
+         }
+     },
     methods: {
       search: async function(){
         try{
@@ -45,13 +64,33 @@ export default {
         }catch(e){
             alert(e)
         }
+      },
+      fetchNextPage: async function(){
+        try{
+          const response = await axios.get(this.nextPage)
+          this.pokemonList = response.data.results
+          this.nextPage = response.data.next
+          this.previous = response.data.previous
+        }catch(e){
+          alert(e)
+        }
+      },
+      fetchPreviousPage: async function(){
+        try{
+          const response = await axios.get(this.previous)
+          this.pokemonList = response.data.results
+          this.nextPage = response.data.next
+          this.previous = response.data.previous
+        }catch(e){
+          alert(e)
+        }
       }
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 .main{
     padding: 5% 5%;
     grid-gap: 3%;
@@ -71,6 +110,23 @@ export default {
 .content{
   margin-top: 2%;
   width: 30%;
+}
+
+
+.pagination{
+  background-color: red;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: normal;
+    grid-gap: 10px;
+  }
 }
 
 @media (max-width: 768px){
