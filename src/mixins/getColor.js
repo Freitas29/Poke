@@ -38,6 +38,18 @@ var mixinColor =  {
                     return unknown()
                 case "shadow":
                     return shadow()
+                case "attack":
+                    return attack()
+                case "defense":
+                    return defense()
+                case "special-attack":
+                    return specialAttack()
+                case "special-defense":
+                    return specialDefense()
+                case "hp":
+                    return hp()
+                case "speed":
+                    return speed()                                        
                 default:
                     return unknown();
             }
@@ -131,5 +143,17 @@ const shadow = () => ({
     backgroundColor: "#fed330",
     color: "#40407a !important"
 })
+
+const speed = () => '#ced6e0' 
+
+const specialDefense = () => '#1B9CFC' 
+
+const specialAttack = () => '#6D214F' 
+
+const defense = () => '#3742fa' 
+
+const attack = () => '#f53b57' 
+
+const hp = () => '#05c46b' 
 
 export default mixinColor
