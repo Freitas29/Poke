@@ -13,6 +13,18 @@
      />
     </div>
 
+    <div class="pokemon-list" v-if="pokemonList[0] !== undefined">
+      
+      <Card
+        v-for="pokemon in pokemonDetails"
+        v-bind:key="pokemon.id"
+        v-bind:image="pokemon.sprites.front_default"
+        v-bind:name="pokemon.name"
+        v-bind:genders="pokemon.types"
+        v-bind:id="pokemon.id"
+      />
+    </div>
+
     <div class="pagination">
       <div class="items">
         <button @click="fetchPreviousPage()">Anterior</button>
@@ -38,6 +50,7 @@ export default {
             pokemon: null,
             name: '',
             pokemonList: [],
+            pokemonDetails: [],
             nextPage: null,
             previous: null,
         }
@@ -45,6 +58,14 @@ export default {
     computed: {
       nameLowerCase: function(){
         return this.name.toLowerCase()
+      },
+      detailsPokemon: function(){
+        let list = this.pokemonDetails
+        
+        return this.pokemonList.map(async poke => {
+          let d = await this.getDetails(poke.url)
+          list.push(d)
+        })
       }
     },
     async mounted(){
@@ -84,6 +105,14 @@ export default {
         }catch(e){
           alert(e)
         }
+      },
+      getDetails: async function(request){
+        try{
+          const response = await axios.get(request)
+          return response.data
+        }catch(e){
+          alert(e)
+        }
       }
     }
 }
@@ -112,6 +141,12 @@ export default {
   width: 30%;
 }
 
+.pokemon-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    justify-items: center;
+}
 
 .pagination{
   background-color: red;
