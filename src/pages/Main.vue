@@ -63,7 +63,10 @@ export default {
             this.nextPage = response.data.next
             this.detailsPokemon(response.data.results)
          }catch(e){
-            alert(e)
+        this.$toast.error({
+          title:'Erro',
+          message:'Erro ao buscar pokemons'
+        })
          }
      },
     methods: {
@@ -72,7 +75,10 @@ export default {
           const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.nameLowerCase}/`)
           this.pokemon = response.data
         }catch(e){
-            alert(e)
+            this.$toast.error({
+              title:'Erro',
+              message:'Erro ao buscar pokemon'
+          })
         }
       },
       fetchNextPage: async function(){
@@ -83,7 +89,10 @@ export default {
           this.previous = response.data.previous
           this.detailsPokemon(response.data.results)
         }catch(e){
-          alert(e)
+          this.$toast.error({
+              title:'Erro',
+              message:'Erro ao buscar pokemons'
+          })
         }
       },
       fetchPreviousPage: async function(){
@@ -94,7 +103,10 @@ export default {
           this.previous = response.data.previous
           this.detailsPokemon(response.data.results)
         }catch(e){
-          alert(e)
+          this.$toast.error({
+              title:'Erro',
+              message:'Erro ao buscar pokemons'
+          })
         }
       },
       getDetails: async function(request){
@@ -102,7 +114,10 @@ export default {
           const response = await axios.get(request)
           return response.data
         }catch(e){
-          alert(e)
+          this.$toast.error({
+              title:'Erro',
+              message:'Erro ao pegar detalhes de um pokemon'
+          })
         }
       },
       detailsPokemon: function(){
