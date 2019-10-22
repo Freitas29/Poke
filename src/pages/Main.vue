@@ -95,10 +95,11 @@ export default {
       },
       fetchPreviousPage: async function(){
         try{
-          const response = await axios.get(this.previous)
+         const response = await axios.get(this.previous)
           this.pokemonList = response.data.results
           this.nextPage = response.data.next
           this.previous = response.data.previous
+          this.detailsPokemon(response.data.results)
         }catch(e){
           alert(e)
         }
