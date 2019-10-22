@@ -27,8 +27,8 @@
 
     <div class="pagination">
       <div class="items">
-        <button @click="fetchPreviousPage()">Anterior</button>
-        <button @click="fetchNextPage()">Próxima</button>
+        <Button label="Anterior" color="seccond" @click="fetchPreviousPage()" />
+        <Button label="Próximo" color="primary" @click="fetchNextPage()" />
       </div>
     </div>
   </div>
@@ -38,12 +38,15 @@
 import Card from '../components/Card'
 import axios from 'axios'
 import Input from '../components/Input'
+import Button from '../components/Button'
+
 
 export default {
   name: 'Main',
   components: {
       Card,
-      Input
+      Input,
+      Button
   },
   data(){
         return { 
