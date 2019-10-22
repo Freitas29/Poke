@@ -52,7 +52,7 @@ export default {
 <style scoped>
 
 .card{
-    background-color: #f1f2f6;
+    background-color: #25202782;
     width: 100%;
     height: 100%;
     transition: all 0.4s;
@@ -75,6 +75,10 @@ export default {
 
 .card-details{
     padding: 5px;
+}
+
+.card-details h1{
+    color: #fff;
 }
 
 .card-details .types{
