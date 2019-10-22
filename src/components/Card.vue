@@ -61,6 +61,7 @@ export default {
 
 .card:hover{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 45px 0px, rgba(0, 0, 0, 0.05) 0px 61px 67px 0px;
+    transform: scale(1.1)
 }
 
 .card .card-image{
