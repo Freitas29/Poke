@@ -24,13 +24,7 @@
         v-bind:id="pokemon.id"
       />
     </div>
-
-    <div class="pagination">
-      <div class="items">
-        <Button label="Anterior" color="seccond" @click="fetchPreviousPage()" />
-        <Button label="Próximo" color="primary" @click="fetchNextPage()" />
-      </div>
-    </div>
+    <Pagination :nextPage="fetchNextPage" :previousPage="fetchPreviousPage" />
   </div>
 </template>
 
@@ -38,16 +32,15 @@
 import Card from '../components/Card'
 import axios from 'axios'
 import Input from '../components/Input'
-import Button from '../components/Button'
-
+import Pagination from '../components/Pagination'
 
 export default {
   name: 'Main',
   components: {
       Card,
       Input,
-      Button
-  },
+      Pagination
+    },
   data(){
         return { 
             pokemon: null,
@@ -154,24 +147,6 @@ export default {
     width: 100%;
     justify-items: normal;
     grid-gap: 1%;
-}
-
-.pagination{
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: static;
-  bottom: 0px;
-  margin-top: 15%;
-
-  .items{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: normal;
-    grid-gap: 10px;
-  }
 }
 
 @media (max-width: 768px){
