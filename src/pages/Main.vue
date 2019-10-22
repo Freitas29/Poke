@@ -58,23 +58,16 @@ export default {
     computed: {
       nameLowerCase: function(){
         return this.name.toLowerCase()
-      },
-      detailsPokemon: function(){
-        let list = this.pokemonDetails
-        
-        return this.pokemonList.map(async poke => {
-          let d = await this.getDetails(poke.url)
-          list.push(d)
-        })
       }
     },
     async mounted(){
          try{
-           const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
-           this.pokemonList = response.data.results
-           this.nextPage = response.data.next
+            const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
+            this.pokemonList = response.data.results
+            this.nextPage = response.data.next
+            this.detailsPokemon(response.data.results)
          }catch(e){
-             alert(e)
+            alert(e)
          }
      },
     methods: {
@@ -92,6 +85,7 @@ export default {
           this.pokemonList = response.data.results
           this.nextPage = response.data.next
           this.previous = response.data.previous
+          this.detailsPokemon(response.data.results)
         }catch(e){
           alert(e)
         }
@@ -113,6 +107,15 @@ export default {
         }catch(e){
           alert(e)
         }
+      },
+      detailsPokemon: function(){
+        let list = []
+        
+        return this.pokemonList.map(async poke => {
+          let d = await this.getDetails(poke.url)
+          list.push(d)
+          this.pokemonDetails = list
+        })
       }
     }
 }
@@ -145,16 +148,19 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    justify-items: center;
+    justify-items: normal;
+    grid-gap: 1%;
 }
 
 .pagination{
-  background-color: red;
   width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: static;
+  bottom: 0px;
+  margin-top: 15%;
 
   .items{
     display: grid;
