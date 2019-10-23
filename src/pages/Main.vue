@@ -22,6 +22,7 @@
         v-bind:name="pokemon.name"
         v-bind:genders="pokemon.types"
         v-bind:id="pokemon.id"
+        v-bind:page="currentPage"
       />
     </div>
     <Pagination :nextPage="fetchNextPage" :previousPage="fetchPreviousPage" />
@@ -49,6 +50,7 @@ export default {
             pokemonDetails: [],
             nextPage: null,
             previous: null,
+            currentPage: null
         }
     },
     computed: {
@@ -58,10 +60,13 @@ export default {
     },
     async mounted(){
          try{
-            const response = await axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
+            let request = this.$route.params.lastPage ? this.$route.params.lastPage : 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20'
+            const response = await axios.get(request)
+            this.currentPage = request
             this.pokemonList = response.data.results
             this.nextPage = response.data.next
             this.detailsPokemon(response.data.results)
+            
          }catch(e){
         this.$toast.error({
           title:'Erro',
@@ -84,6 +89,7 @@ export default {
       fetchNextPage: async function(){
         try{
           const response = await axios.get(this.nextPage)
+          this.currentPage = this.nextPage
           this.pokemonList = response.data.results
           this.nextPage = response.data.next
           this.previous = response.data.previous

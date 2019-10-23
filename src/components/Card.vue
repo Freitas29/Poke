@@ -1,5 +1,5 @@
 <template>
-    <router-link class="nav-link" :to="goToDetails()">
+    <router-link class="nav-link" :to="{name: 'details', params: {id, page}}">
         <div class="card">
             <div class="card-image">
                 <img :src="image">
@@ -35,6 +35,10 @@ export default {
         id: {
             type: Number,
             required: true,
+        },
+        page: {
+            type: String,
+            required: false
         }
     },
     methods: {

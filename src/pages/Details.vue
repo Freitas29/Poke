@@ -53,6 +53,9 @@
                     
             </div>
         </div>
+        <div class="button-float">
+            <router-link :to="{ name: 'main', params: { lastPage: this.$route.params.page }}"><button >Voltar</button></router-link>
+        </div>
     </div>
 </template>
 
@@ -60,6 +63,7 @@
 import ProgressBar from 'vue-simple-progress'
 import axios from 'axios'
 import mixinColor from '../mixins/getColor.js'
+
 
 export default {
     name: "Details",
@@ -69,7 +73,7 @@ export default {
     methods: {
         getColor(value){
             return this.color(value)
-        }
+        },
     },
      async mounted(){
          try{
@@ -184,6 +188,18 @@ export default {
             }
 
         }
+    }
+
+    .button-float{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        background-color: red;
+        width: 10%;
+        height: 50px;
     }
 
 </style>

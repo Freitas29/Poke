@@ -6,8 +6,8 @@ import Details from '../pages/Details.vue'
 Vue.use(VueRouter)
 
 const routes = [
-    { path: "/", component: Main },
-    { path: "/pokemon/:id", component: Details }
+    { path: "/", name: "main", component: Main },
+    { path: "/pokemon/:id", name: "details", component: Details }
 ]
 
   
