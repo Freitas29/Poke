@@ -45,4 +45,11 @@ export default {
     grid-gap: 10px;
   }
 }
+
+@media (max-width: 768px){
+       .pagination{
+            position: relative;
+            bottom: -1250px !important;
+        }
+   }
 </style>

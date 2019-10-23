@@ -174,6 +174,14 @@ export default {
   .content{
     width: 70%;
   }
+
+  .pokemon-list{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    justify-items: normal;
+    grid-gap: 1%;
+  }
 }
 
 </style>

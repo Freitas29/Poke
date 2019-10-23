@@ -54,13 +54,16 @@ export default {
 </script>
 
 <style scoped>
-
+a{
+    position: relative;
+}
 .card{
     background-color: #25202782;
     width: 100%;
     height: 100%;
     transition: all 0.4s;
     border-radius: 10px;
+    position: relative;
 }
 
 .card:hover{

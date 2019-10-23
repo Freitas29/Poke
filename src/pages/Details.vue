@@ -168,6 +168,22 @@ export default {
         }
     }
 
+     .button-float{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        width: 10%;
+        height: 50px;
+
+        a{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
     @media (max-width: 768px){
         .pokemon-details{
             margin-top: 5%;
@@ -189,21 +205,45 @@ export default {
             }
 
         }
-    }
 
-    .button-float{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 20%;
-        right: 5%;
-        width: 10%;
-        height: 50px;
+        .card-image img{
+            width: 100% !important;
+        }
 
-        a{
-            width: 100%;
-            height: 100%;
+        .button-float{
+            top:13%;
+            right: 25%;
+        }
+
+        @media (max-width: 1024px){
+            .card-image img{
+                width: 50% !important;
+            }
+        }
+
+        @media (min-width: 375px){
+            .button-float{
+                top:10% !important;
+                right: 25%;
+            }
+        }
+
+        @media (min-width: 320px){
+            .button-float{
+                top:15%;
+                right: 30%;
+            }
+
+            .pagination{
+                top: 12000px;
+            }
+        }
+
+        @media (min-width: 411px){
+           .button-float{
+                top:10.5%;
+                right: 25%;
+            }
         }
     }
 
